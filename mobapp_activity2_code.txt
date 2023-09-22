@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIApp2.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <!-- First Set: Expectation -->
+            <ImageButton x:Name="ImageToggle1"
+                         Clicked="OnImageToggleClicked"
+                         HeightRequest="250" WidthRequest="250">
+                
+                <ImageButton.Source>
+                    <FileImageSource File="expectation.png" />
+                </ImageButton.Source>
+            </ImageButton>
+            <Label Text="Expectation" HorizontalOptions="Center" />
+            <Label x:Name="RealityLabel1" Text="Reality" HorizontalOptions="Center" IsVisible="false" />
+
+            <!-- Second Set: Expectation -->
+            <ImageButton x:Name="ImageToggle2"
+                         Clicked="OnImageToggleClicked"
+                         HeightRequest="250" WidthRequest="250">
+                <ImageButton.Source>
+                    <FileImageSource File="expectation_img2.png" />
+                </ImageButton.Source>
+
+            </ImageButton>
+            <Label Text="Expectation" HorizontalOptions="Center" />
+            <Label x:Name="RealityLabel2" Text="Reality" HorizontalOptions="Center" IsVisible="false" />
+            
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
+
+namespace MAUIApp2;
+
+public static class MauiProgram
+{
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder
+			.UseMauiApp<App>()
+			.ConfigureFonts(fonts =>
+			{
+				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			});
+
+		return builder.Build();
+	}
+}
